@@ -1,16 +1,16 @@
 # Bookmarq
 
-A lightweight new tab page for Chrome bookmarks.
+Bookmarq replaces Chrome's new tab page with compact columns of your existing bookmarks.
 
-Bookmarq replaces the New Tab page with compact columns of your existing bookmarks.
+- Folder and subfolder navigation.
+- Search by bookmark title.
+- Open all web links in a folder at once, excluding links in subfolders.
+- Show or hide search and website icons, and choose where links open.
+- Automatic light and dark themes matching your browser's color scheme.
 
-- Browse bookmark folders and open saved links.
-- Search bookmarks by title.
-- Open the visible web links in a folder using the icon in its header.
-- Choose whether to display search and website icons, and where links open.
-- Light and dark themes follow the browser's color scheme.
+Runs locally in Chrome without ads, analytics or external services.
 
-Bookmarq runs locally in Chrome without a server, analytics or advertising. It requires Chrome 134 or later.
+Requires Chrome 134 or later.
 
 ## Installation
 
