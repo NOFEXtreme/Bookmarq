@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="referrer" content="no-referrer">
+    <title>Bookmarq</title>
+    <script src="js/startup.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/app.js" defer blocking="render"></script>
+</head>
+<body>
+    <header id="header-module">
+        <search id="bookmark-search-module" hidden>
+            <div class="bookmark-search-control">
+                <span class="bookmark-search-icon" aria-hidden="true"></span>
+                <input id="searchInput" type="text" autocomplete="off" spellcheck="false"
+                    role="combobox" aria-autocomplete="list" aria-controls="searchSuggestions" aria-expanded="false"
+                    data-i18n-aria="bookmarkSearchPlaceholder" data-i18n-placeholder="bookmarkSearchPlaceholder">
+                <button class="search-clear" type="button" data-i18n-aria="clearSearchLabel"></button>
+            </div>
+            <ul id="searchSuggestions" class="dropdown-panel dropdown-list search-suggestions" role="listbox"></ul>
+        </search>
+        <button id="options_button" type="button" aria-controls="options-module" aria-expanded="false"
+            data-i18n-aria="settingsLabel">
+            <img src="img/gear.png" alt="">
+        </button>
+    </header>
+
+    <main id="view-main">
+        <div id="bookmarks-module"></div>
+    </main>
+
+    <div id="options-module" class="dropdown-panel">
+        <div class="options-scroll">
+            <div class="option">
+                <label class="dropdown-item check-row">
+                    <span data-i18n="bookmarksSearchEnabledLabel">Show bookmark search</span>
+                    <input id="allowBookmarksSearch" type="checkbox">
+                    <span class="check-box" aria-hidden="true"></span>
+                </label>
+            </div>
+            <div class="option">
+                <label class="dropdown-item check-row">
+                    <span data-i18n="faviconDisplayedLabel">Show website icons</span>
+                    <input id="faviconDisplayed" type="checkbox">
+                    <span class="check-box" aria-hidden="true"></span>
+                </label>
+            </div>
+            <div class="option">
+                <label class="dropdown-item radio-row">
+                    <span data-i18n="currentTabLabel">Open bookmarks in this tab</span>
+                    <input id="currentTab" name="tabOption" type="radio">
+                    <span class="radio-mark" aria-hidden="true"></span>
+                </label>
+                <label class="dropdown-item radio-row">
+                    <span data-i18n="newTabLabel">Open bookmarks in a new tab</span>
+                    <input id="newTab" name="tabOption" type="radio">
+                    <span class="radio-mark" aria-hidden="true"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

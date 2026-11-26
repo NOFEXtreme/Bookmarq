@@ -1,0 +1,53 @@
+{
+    "appName": {
+        "message": "Bookmarq"
+    },
+    "appDescription": {
+        "message": "Una nuova scheda con accesso rapido ai preferiti in colonne."
+    },
+    "bmBarTitle": {
+        "message": "Barra dei preferiti"
+    },
+    "currentTabLabel": {
+        "message": "Apri i preferiti in questa scheda"
+    },
+    "faviconDisplayedLabel": {
+        "message": "Mostra le icone dei siti"
+    },
+    "newTabLabel": {
+        "message": "Apri i preferiti in una nuova scheda"
+    },
+    "obmTitle": {
+        "message": "Altri preferiti"
+    },
+    "openFolderLinksLabel": {
+        "message": "Apri link"
+    },
+    "openFolderLinksHelp": {
+        "message": "Apre solo i link visibili in questa cartella, non quelli nelle sottocartelle."
+    },
+    "settingsLabel": {
+        "message": "Impostazioni"
+    },
+    "backLabel": {
+        "message": "Indietro"
+    },
+    "bookmarkSearchPlaceholder": {
+        "message": "Cerca nei preferiti"
+    },
+    "bookmarksSearchEnabledLabel": {
+        "message": "Mostra la ricerca nei preferiti"
+    },
+    "search_suggestions_no_result": {
+        "message": "Nessun risultato"
+    },
+    "clearSearchLabel": {
+        "message": "Cancella ricerca"
+    },
+    "storageAccount": {
+        "message": "Account"
+    },
+    "storageLocal": {
+        "message": "Locale"
+    }
+}

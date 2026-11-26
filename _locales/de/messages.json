@@ -1,0 +1,53 @@
+{
+    "appName": {
+        "message": "Bookmarq"
+    },
+    "appDescription": {
+        "message": "Eine neue Tab-Seite mit schnellem Zugriff auf Lesezeichen in Spalten."
+    },
+    "bmBarTitle": {
+        "message": "Lesezeichenleiste"
+    },
+    "currentTabLabel": {
+        "message": "Lesezeichen in diesem Tab öffnen"
+    },
+    "faviconDisplayedLabel": {
+        "message": "Website-Symbole anzeigen"
+    },
+    "newTabLabel": {
+        "message": "Lesezeichen in neuem Tab öffnen"
+    },
+    "obmTitle": {
+        "message": "Weitere Lesezeichen"
+    },
+    "openFolderLinksLabel": {
+        "message": "Links öffnen"
+    },
+    "openFolderLinksHelp": {
+        "message": "Öffnet nur die sichtbaren Links in diesem Ordner, keine Links in Unterordnern."
+    },
+    "settingsLabel": {
+        "message": "Einstellungen"
+    },
+    "backLabel": {
+        "message": "Zurück"
+    },
+    "bookmarkSearchPlaceholder": {
+        "message": "Lesezeichen suchen"
+    },
+    "bookmarksSearchEnabledLabel": {
+        "message": "Lesezeichensuche anzeigen"
+    },
+    "search_suggestions_no_result": {
+        "message": "Keine Ergebnisse"
+    },
+    "clearSearchLabel": {
+        "message": "Suche löschen"
+    },
+    "storageAccount": {
+        "message": "Konto"
+    },
+    "storageLocal": {
+        "message": "Lokal"
+    }
+}

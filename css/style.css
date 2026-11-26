@@ -1,0 +1,732 @@
+:root {
+    --header-height: 38px;
+    --header-inset: 18px;
+    --settings-button-width: 30px;
+    --accent: #707070;
+    --accent-hover: #4a4a4a;
+    --motion-fast: 120ms;
+    --motion-normal: 160ms;
+    --motion-slow: 220ms;
+    color-scheme: light;
+    --page-bg: #eeeeee;
+    --text: #151515;
+    --text-muted: #666;
+    --folder-title-text: #333;
+    --bookmark-text: #080808;
+    --link-icon: #a3a3a3;
+    --panel: linear-gradient(to bottom, rgb(255 255 255 / 90%), rgb(248 248 248 / 70%));
+    --panel-solid: rgb(255 255 255 / 10%);
+    --panel-border: #dedede;
+    --panel-shadow: 0 8px 24px rgb(0 0 0 / 10%);
+    --panel-shadow-hover: 0 10px 26px rgb(0 0 0 / 14%);
+    --header-bg: #f7f7f7;
+    --header-control-bg: #fff;
+    --header-control-border: #d4d4d4;
+    --header-control-text: #333;
+    --header-control-shadow: 0 1px 2px rgb(0 0 0 / 9%);
+    --header-control-hover-bg: #f0f0f0;
+    --header-control-hover-border: #b8b8b8;
+    --header-control-hover-text: #151515;
+    --header-control-hover-shadow: 0 2px 7px rgb(0 0 0 / 13%);
+    --header-control-active-bg: #e8e8e8;
+    --header-control-focus-ring: rgb(0 0 0 / 12%);
+    --field-bg: #fff;
+    --field-border: #d4d4d4;
+    --dropdown-bg: #fff;
+    --dropdown-border: #dedede;
+    --dropdown-shadow: 0 10px 24px rgb(0 0 0 / 14%);
+    --scroll-track: #e5e5e5;
+    --scroll-thumb: #a5a5a5;
+    --scroll-thumb-hover: #888;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+:is(#bookmark-search-module, .dropdown-panel) {
+    --dropdown-padding-block: 6px;
+    --dropdown-item-font-size: 12.5px;
+    --dropdown-item-font-weight: 500;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    user-select: none;
+    color: var(--text);
+    background-color: var(--page-bg);
+    font: 12px Verdana, Calibri, Arial, sans-serif;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+input {
+    user-select: text;
+}
+
+#view-main {
+    position: absolute;
+    inset: var(--header-height) 0 0;
+    overflow: hidden auto;
+    background-color: var(--page-bg);
+    scrollbar-gutter: stable both-edges;
+}
+
+#view-main,
+.search-suggestions,
+#options-module .options-scroll {
+    scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+}
+
+:is(#view-main, .search-suggestions, #options-module .options-scroll)::-webkit-scrollbar {
+    width: 10px;
+}
+
+:is(#view-main, .search-suggestions, #options-module .options-scroll)::-webkit-scrollbar-track {
+    background: var(--scroll-track);
+}
+
+:is(#view-main, .search-suggestions, #options-module .options-scroll)::-webkit-scrollbar-thumb {
+    border: 2px solid var(--scroll-track);
+    border-radius: 999px;
+    background: var(--scroll-thumb);
+}
+
+:is(#view-main, .search-suggestions, #options-module .options-scroll)::-webkit-scrollbar-thumb:hover {
+    background: var(--scroll-thumb-hover);
+}
+
+#header-module {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+    height: var(--header-height);
+    padding: 4px var(--header-inset) 4px 8px;
+    background: var(--header-bg);
+    box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+}
+
+#options_button,
+.bookmark-search-control {
+    border: 1px solid var(--header-control-border);
+    border-radius: 7px;
+    color: var(--header-control-text);
+    background-color: var(--header-control-bg);
+    box-shadow: var(--header-control-shadow);
+}
+
+#options_button {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--settings-button-width);
+    height: 28px;
+    padding: 0;
+    cursor: pointer;
+    transition:
+        color var(--motion-fast) ease-out,
+        background-color var(--motion-fast) ease-out,
+        border-color var(--motion-fast) ease-out,
+        box-shadow var(--motion-fast) ease-out,
+        transform var(--motion-fast) ease-out;
+}
+
+#options_button:is(:hover, :focus-visible, [aria-expanded="true"]) {
+    color: var(--header-control-hover-text);
+    border-color: var(--header-control-hover-border);
+    background-color: var(--header-control-hover-bg);
+    box-shadow: var(--header-control-hover-shadow);
+}
+
+#options_button:focus-visible {
+    outline: 0;
+    box-shadow: 0 0 0 3px var(--header-control-focus-ring), var(--header-control-hover-shadow);
+}
+
+#options_button:active {
+    background-color: var(--header-control-active-bg);
+    box-shadow: var(--header-control-shadow);
+    transform: translateY(1px);
+}
+
+#options_button img {
+    flex: 0 0 auto;
+    object-fit: contain;
+    opacity: .92;
+    width: 18px;
+    height: 18px;
+    filter: brightness(0) opacity(.72);
+}
+
+#bookmark-search-module {
+    position: relative;
+    flex: 0 1 340px;
+    min-width: 0;
+    height: 28px;
+}
+
+.bookmark-search-control {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    transition:
+        color var(--motion-fast) ease-out,
+        background-color var(--motion-fast) ease-out,
+        border-color var(--motion-fast) ease-out,
+        box-shadow var(--motion-fast) ease-out;
+}
+
+#bookmark-search-module .bookmark-search-control:hover,
+#bookmark-search-module:focus-within .bookmark-search-control {
+    color: var(--header-control-hover-text);
+    border-color: var(--header-control-hover-border);
+    background-color: var(--header-control-hover-bg);
+    box-shadow: var(--header-control-hover-shadow);
+}
+
+#bookmark-search-module:focus-within .bookmark-search-control {
+    border-color: var(--text-muted);
+}
+
+.bookmark-search-icon {
+    position: absolute;
+    top: 50%;
+    left: 9px;
+    width: 12px;
+    height: 12px;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    color: var(--text-muted);
+    opacity: .78;
+    pointer-events: none;
+    transform: translateY(-58%);
+    transition: color var(--motion-normal) ease, opacity var(--motion-normal) ease;
+}
+
+.bookmark-search-icon::after {
+    content: "";
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    width: 6px;
+    height: 2px;
+    border-radius: 999px;
+    background: currentColor;
+    transform: rotate(45deg);
+    transform-origin: left center;
+}
+
+#bookmark-search-module .bookmark-search-control:hover .bookmark-search-icon,
+#bookmark-search-module:focus-within .bookmark-search-icon {
+    color: var(--header-control-hover-text);
+    opacity: 1;
+}
+
+#searchInput {
+    width: 100%;
+    color: var(--text);
+    font-size: var(--dropdown-item-font-size);
+    outline: 0;
+    height: 100%;
+    padding: 0 30px 0 32px;
+    border: 0;
+    background: transparent;
+}
+
+#searchInput::placeholder {
+    color: var(--text-muted);
+}
+
+.search-clear {
+    position: absolute;
+    top: 50%;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    transform: translateY(-50%);
+    right: 7px;
+    display: none;
+    color: var(--text-muted);
+    background: transparent;
+}
+
+#searchInput:not(:placeholder-shown) + .search-clear {
+    display: inline-flex;
+}
+
+.search-clear::before,
+.search-clear::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+}
+
+.search-clear::before {
+    transform: rotate(45deg);
+}
+
+.search-clear::after {
+    transform: rotate(-45deg);
+}
+
+.search-clear:hover {
+    color: var(--accent-hover);
+}
+
+.dropdown-panel {
+    display: none;
+    border-radius: 8px;
+    background: var(--dropdown-bg);
+    box-shadow: 0 0 0 1px var(--dropdown-border), var(--dropdown-shadow);
+}
+
+.dropdown-list {
+    margin: 0;
+    padding: var(--dropdown-padding-block) 0;
+    list-style: none;
+}
+
+.dropdown-item,
+.dropdown-empty {
+    display: flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 7px 13px;
+    color: var(--text);
+    font-size: var(--dropdown-item-font-size);
+    font-weight: var(--dropdown-item-font-weight);
+    line-height: 1.3;
+}
+
+.dropdown-item {
+    transition: background var(--motion-fast) ease;
+}
+
+.dropdown-list .dropdown-item {
+    gap: 7px;
+}
+
+a.dropdown-item {
+    text-decoration: none;
+}
+
+.search-suggestions li.active > .dropdown-item,
+.dropdown-item:is(:hover, :focus-visible),
+#options-module .dropdown-item:focus-within {
+    background: color-mix(in srgb, var(--text) 10%, var(--dropdown-bg));
+    outline: 0;
+}
+
+.dropdown-empty {
+    justify-content: center;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.search-suggestions {
+    position: absolute;
+    top: 33px;
+    right: 0;
+    z-index: 20;
+    width: 100%;
+    max-height: min(360px, calc(100vh - 47px));
+    overflow: hidden auto;
+}
+
+#bookmarks-module {
+    --group-header-height: 30px;
+    position: relative;
+    margin-inline: auto;
+    padding: 36px 1px 42px;
+}
+
+#bookmarks-module .cont {
+    position: absolute;
+    width: 200px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border: 1px solid var(--panel-border);
+    border-radius: 4px;
+    background-image: var(--panel);
+    box-shadow: var(--panel-shadow);
+    transition: box-shadow var(--motion-normal) ease-out;
+}
+
+#bookmarks-module .cont:hover {
+    box-shadow: var(--panel-shadow-hover);
+}
+
+#bookmarks-module .group-header {
+    position: relative;
+    height: var(--group-header-height);
+    padding: 5px 32px;
+    overflow: hidden;
+    background-color: var(--panel-solid);
+    text-align: center;
+}
+
+#bookmarks-module .group_title {
+    margin-left: 5px;
+    overflow: hidden;
+    color: var(--folder-title-text);
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 18px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#bookmarks-module :is(.group_back, .group-actions) {
+    position: absolute;
+    top: 3px;
+    display: grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: 0;
+    border-radius: 5px;
+    color: var(--text-muted);
+    background: transparent;
+    cursor: pointer;
+}
+
+#bookmarks-module :is(.group_back, .group-actions):focus-visible {
+    outline: 1px solid var(--text-muted);
+    outline-offset: -1px;
+}
+
+#bookmarks-module .group-actions {
+    right: 4px;
+    opacity: 0;
+    pointer-events: none;
+    transition:
+        opacity var(--motion-normal) ease-out,
+        color var(--motion-fast) ease-out,
+        background-color var(--motion-fast) ease-out;
+}
+
+#bookmarks-module .group-header:hover .group-actions,
+#bookmarks-module .group-actions:focus-visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#bookmarks-module .group-actions:is(:hover, :focus-visible) {
+    color: var(--text);
+    background-color: color-mix(in srgb, var(--text) 8%, transparent);
+}
+
+#bookmarks-module .group-actions::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    background: currentColor;
+    mask: url(../img/open-links.svg) center / contain no-repeat;
+}
+
+#bookmarks-module .group_back {
+    left: 4px;
+}
+
+#bookmarks-module .group_back::before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    background: url(../img/back.png) top / 16px 32px no-repeat;
+}
+
+#bookmarks-module .group_back:is(:hover, :focus-visible)::before {
+    background-position: bottom;
+}
+
+#bookmarks-module ul {
+    position: relative;
+    margin: 0;
+    padding: 0 0 4px;
+}
+
+#bookmarks-module li {
+    overflow: hidden;
+    list-style: none;
+}
+
+#bookmarks-module .indicator {
+    position: absolute;
+    top: calc(var(--group-header-height) + 16px);
+    left: 0;
+    width: 2px;
+    height: 25px;
+    opacity: 0;
+    background-color: var(--accent);
+    pointer-events: none;
+    transition: opacity var(--motion-normal) linear;
+}
+
+#bookmarks-module ul:hover .indicator {
+    opacity: 1;
+}
+
+#bookmarks-module .bookmark-entry {
+    position: relative;
+    left: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 25px;
+    padding: 0 18px;
+    overflow: hidden;
+    border: 0;
+    appearance: none;
+    color: var(--bookmark-text);
+    background: transparent;
+    font-size: 11px;
+    font-weight: 500;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    transition: left var(--motion-slow) ease-out, color var(--motion-normal) ease;
+}
+
+#bookmarks-module .bookmark-entry[data-link-type="folder"] {
+    font-weight: 700;
+}
+
+#bookmarks-module .bookmark-entry:hover {
+    left: 12px;
+    color: var(--accent-hover);
+}
+
+.search-suggestions .dropdown-item > span,
+#bookmarks-module .bookmark-title {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.favicon {
+    flex: 0 0 auto;
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+
+#bookmarks-module .favicon {
+    margin: 0 3px 0 0;
+}
+
+.folder-icon {
+    background: url(../img/folder.png) center / 16px 16px no-repeat;
+}
+
+.link-icon {
+    border: 1px solid var(--link-icon);
+    border-radius: 50%;
+    background: radial-gradient(circle at center, var(--link-icon) 0%, var(--link-icon) 42%, transparent 45%);
+}
+
+#bookmarks-module .bookmark-entry[data-link-type="folder"]::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    right: 18px;
+    width: 12px;
+    height: 13px;
+    background: url(../img/bm_arrow_r.png) center / 12px 13px no-repeat;
+    transition: right var(--motion-slow) ease-out;
+}
+
+#bookmarks-module .bookmark-entry[data-link-type="folder"]:hover::after {
+    right: 19px;
+}
+
+#options-module {
+    position: fixed;
+    right: var(--header-inset);
+    z-index: 30;
+    width: min(290px, calc(100vw - 2 * var(--header-inset)));
+}
+
+#options-module::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: calc(100% - var(--settings-button-width) / 2);
+    width: 10px;
+    height: 10px;
+    background: var(--dropdown-bg);
+    box-shadow: -1px -1px 0 var(--dropdown-border);
+    transform: translateX(-50%) rotate(45deg);
+}
+
+#options-module .options-scroll {
+    max-height: calc(100vh - 58px);
+    padding: var(--dropdown-padding-block) 0;
+    overflow: hidden auto;
+    border-radius: inherit;
+}
+
+#options-module .option {
+    padding: 6px 13px;
+    border-bottom: 1px solid color-mix(in srgb, var(--dropdown-border), transparent 45%);
+}
+
+#options-module .option:last-child {
+    border-bottom: 0;
+}
+
+#options-module :is(.radio-row, .check-row) {
+    position: relative;
+    justify-content: space-between;
+    gap: 12px;
+    margin-inline: -13px;
+    cursor: pointer;
+}
+
+#options-module :is(.radio-row, .check-row) > input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    opacity: 0;
+}
+
+#options-module :is(.radio-mark, .check-box) {
+    position: relative;
+    flex: 0 0 auto;
+    border: 1px solid var(--field-border);
+    background: var(--field-bg);
+    box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+    transition:
+        background var(--motion-normal) ease,
+        border-color var(--motion-normal) ease,
+        box-shadow var(--motion-normal) ease;
+}
+
+#options-module .radio-mark {
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+}
+
+#options-module .radio-mark::after {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border-radius: 50%;
+    opacity: 0;
+    background: #fff;
+    transform: scale(.7);
+    transition: opacity var(--motion-fast) ease, transform var(--motion-fast) ease;
+}
+
+#options-module .radio-row > input:checked + .radio-mark::after,
+#options-module .check-row > input:checked + .check-box::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+#options-module .check-box {
+    width: 18px;
+    height: 18px;
+    border-radius: 5px;
+}
+
+#options-module .check-box::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    width: 5px;
+    height: 9px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    opacity: 0;
+    transform: rotate(45deg) scale(.85);
+    transition: opacity var(--motion-fast) ease, transform var(--motion-fast) ease;
+}
+
+#options-module .check-row > input:checked + .check-box::after {
+    transform: rotate(45deg) scale(1);
+}
+
+#options-module :is(.radio-row:hover .radio-mark, .check-row:hover .check-box) {
+    border-color: var(--accent);
+}
+
+#options-module :is(.radio-row > input:checked + .radio-mark, .check-row > input:checked + .check-box) {
+    border-color: var(--accent);
+    background: var(--accent);
+}
+
+#options-module :is(.radio-row > input:focus-visible + .radio-mark, .check-row > input:focus-visible + .check-box) {
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --motion-fast: 0ms;
+        --motion-normal: 0ms;
+        --motion-slow: 0ms;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+        --accent: #666;
+        --accent-hover: #d0d0d0;
+        --page-bg: #161616;
+        --text: #f3f3f3;
+        --text-muted: #b7b7b7;
+        --folder-title-text: #f3f3f3;
+        --bookmark-text: #f7f7f7;
+        --link-icon: #858585;
+        --panel: linear-gradient(to bottom, rgb(18 18 18 / 90%), rgb(20 20 20 / 70%));
+        --panel-solid: rgb(18 18 18 / 10%);
+        --panel-border: #141414;
+        --panel-shadow: -2px 1px 10px rgb(0 0 0 / 10%);
+        --panel-shadow-hover: 0 0 15px rgb(0 0 0 / 20%);
+        --header-bg: rgb(18 18 18 / 96%);
+        --header-control-bg: #222;
+        --header-control-border: #323232;
+        --header-control-text: #d7d7d7;
+        --header-control-shadow: 0 1px 2px rgb(0 0 0 / 24%);
+        --header-control-hover-bg: #2d2d2d;
+        --header-control-hover-border: #484848;
+        --header-control-hover-text: #fff;
+        --header-control-hover-shadow: 0 2px 8px rgb(0 0 0 / 34%);
+        --header-control-active-bg: #191919;
+        --header-control-focus-ring: rgb(255 255 255 / 14%);
+        --field-bg: #212121;
+        --field-border: #2b2b2b;
+        --dropdown-bg: #141414;
+        --dropdown-border: #0f0f0f;
+        --dropdown-shadow: 0 10px 22px rgb(0 0 0 / 28%);
+        --scroll-track: #111;
+        --scroll-thumb: #3a3a3a;
+        --scroll-thumb-hover: #575757;
+    }
+
+    #options_button img {
+        filter: none;
+    }
+}

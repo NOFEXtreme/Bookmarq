@@ -1,0 +1,23 @@
+{
+    "manifest_version": 3,
+    "name": "__MSG_appName__",
+    "version": "1.0.0",
+    "description": "__MSG_appDescription__",
+    "default_locale": "en",
+    "icons": {
+        "16": "img/icon16.png",
+        "48": "img/icon48.png",
+        "128": "img/icon128.png"
+    },
+    "chrome_url_overrides": {
+        "newtab": "newtab.html"
+    },
+    "permissions": [
+        "favicon",
+        "bookmarks"
+    ],
+    "minimum_chrome_version": "134",
+    "content_security_policy": {
+        "extension_pages": "default-src 'self'; object-src 'none'; connect-src 'none'"
+    }
+}

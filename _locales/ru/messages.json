@@ -1,0 +1,53 @@
+{
+    "appName": {
+        "message": "Bookmarq"
+    },
+    "appDescription": {
+        "message": "Новая вкладка с быстрым доступом к закладкам в колонках."
+    },
+    "bmBarTitle": {
+        "message": "Панель закладок"
+    },
+    "currentTabLabel": {
+        "message": "Открывать закладки в этой вкладке"
+    },
+    "faviconDisplayedLabel": {
+        "message": "Показывать иконки сайтов"
+    },
+    "newTabLabel": {
+        "message": "Открывать закладки в новой вкладке"
+    },
+    "obmTitle": {
+        "message": "Другие закладки"
+    },
+    "openFolderLinksLabel": {
+        "message": "Открыть ссылки"
+    },
+    "openFolderLinksHelp": {
+        "message": "Открывает только видимые ссылки в этой папке, без вложенных папок."
+    },
+    "settingsLabel": {
+        "message": "Настройки"
+    },
+    "backLabel": {
+        "message": "Назад"
+    },
+    "bookmarkSearchPlaceholder": {
+        "message": "Поиск по закладкам"
+    },
+    "bookmarksSearchEnabledLabel": {
+        "message": "Показывать поиск по закладкам"
+    },
+    "search_suggestions_no_result": {
+        "message": "Ничего не найдено"
+    },
+    "clearSearchLabel": {
+        "message": "Очистить поиск"
+    },
+    "storageAccount": {
+        "message": "Аккаунт"
+    },
+    "storageLocal": {
+        "message": "Локально"
+    }
+}

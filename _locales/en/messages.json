@@ -1,0 +1,53 @@
+{
+    "appName": {
+        "message": "Bookmarq"
+    },
+    "appDescription": {
+        "message": "A new tab page with quick access to your bookmarks in columns."
+    },
+    "bmBarTitle": {
+        "message": "Bookmarks bar"
+    },
+    "currentTabLabel": {
+        "message": "Open bookmarks in this tab"
+    },
+    "faviconDisplayedLabel": {
+        "message": "Show website icons"
+    },
+    "newTabLabel": {
+        "message": "Open bookmarks in a new tab"
+    },
+    "obmTitle": {
+        "message": "Other bookmarks"
+    },
+    "openFolderLinksLabel": {
+        "message": "Open links"
+    },
+    "openFolderLinksHelp": {
+        "message": "Opens only the visible links in this folder, not links inside subfolders."
+    },
+    "settingsLabel": {
+        "message": "Settings"
+    },
+    "backLabel": {
+        "message": "Back"
+    },
+    "bookmarkSearchPlaceholder": {
+        "message": "Search bookmarks"
+    },
+    "bookmarksSearchEnabledLabel": {
+        "message": "Show bookmark search"
+    },
+    "search_suggestions_no_result": {
+        "message": "No results"
+    },
+    "clearSearchLabel": {
+        "message": "Clear search"
+    },
+    "storageAccount": {
+        "message": "Account"
+    },
+    "storageLocal": {
+        "message": "Local"
+    }
+}
