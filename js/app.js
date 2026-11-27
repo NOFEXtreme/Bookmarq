@@ -338,10 +338,7 @@ const BookmarksModule = {
         entry.dataset.nodeId = node.id;
         entry.dataset.linkType = node.url ? "link" : "folder";
         if (node.url) entry.href = node.url;
-        else {
-            entry.type = "button";
-            entry.dataset.folderId = node.id;
-        }
+        else entry.type = "button";
         const icon = createFavicon(node.url);
         if (icon) entry.append(icon);
         const text = document.createElement("span");
@@ -588,7 +585,7 @@ const BookmarksModule = {
             if (event.button !== 1 || !entry) return;
             event.preventDefault();
             if (entry.dataset.linkType === "folder") {
-                this.updateContainer(entry.closest(".cont"), entry.dataset.folderId, "push");
+                this.updateContainer(entry.closest(".cont"), entry.dataset.nodeId, "push");
             }
         });
         for (const name of ["click", "auxclick"]) {
@@ -599,7 +596,7 @@ const BookmarksModule = {
                 if (entry) {
                     event.preventDefault();
                     if (entry.dataset.linkType === "folder") {
-                        if (name === "click") this.updateContainer(container, entry.dataset.folderId, "push");
+                        if (name === "click") this.updateContainer(container, entry.dataset.nodeId, "push");
                         else event.stopPropagation();
                     } else {
                         event.stopPropagation();

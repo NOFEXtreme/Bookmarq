@@ -3,7 +3,7 @@
         "message": "Bookmarq"
     },
     "appDescription": {
-        "message": "Un nouvel onglet avec un accès rapide à vos favoris en colonnes."
+        "message": "Accès rapide à vos favoris dans chaque nouvel onglet."
     },
     "bmBarTitle": {
         "message": "Barre de favoris"
@@ -21,10 +21,10 @@
         "message": "Autres favoris"
     },
     "openFolderLinksLabel": {
-        "message": "Ouvrir les liens"
+        "message": "Ouvrir tous les liens web"
     },
     "openFolderLinksHelp": {
-        "message": "Ouvre uniquement les liens visibles dans ce dossier, pas ceux des sous-dossiers."
+        "message": "Ouvre tous les liens web de ce dossier dans de nouveaux onglets (sans ceux des sous-dossiers)."
     },
     "settingsLabel": {
         "message": "Paramètres"

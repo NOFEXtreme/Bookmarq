@@ -3,7 +3,7 @@
         "message": "Bookmarq"
     },
     "appDescription": {
-        "message": "Una nuova scheda con accesso rapido ai preferiti in colonne."
+        "message": "Accesso rapido ai tuoi preferiti in ogni nuova scheda."
     },
     "bmBarTitle": {
         "message": "Barra dei preferiti"
@@ -21,10 +21,10 @@
         "message": "Altri preferiti"
     },
     "openFolderLinksLabel": {
-        "message": "Apri link"
+        "message": "Apri tutti i link web"
     },
     "openFolderLinksHelp": {
-        "message": "Apre solo i link visibili in questa cartella, non quelli nelle sottocartelle."
+        "message": "Apre tutti i link web di questa cartella in nuove schede (esclusi quelli nelle sottocartelle)."
     },
     "settingsLabel": {
         "message": "Impostazioni"

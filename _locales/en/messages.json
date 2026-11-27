@@ -3,7 +3,7 @@
         "message": "Bookmarq"
     },
     "appDescription": {
-        "message": "A new tab page with quick access to your bookmarks in columns."
+        "message": "Quick access to your bookmarks on every new tab."
     },
     "bmBarTitle": {
         "message": "Bookmarks bar"
@@ -21,10 +21,10 @@
         "message": "Other bookmarks"
     },
     "openFolderLinksLabel": {
-        "message": "Open links"
+        "message": "Open all web links"
     },
     "openFolderLinksHelp": {
-        "message": "Opens only the visible links in this folder, not links inside subfolders."
+        "message": "Opens all web links in this folder in new tabs (not links in subfolders)."
     },
     "settingsLabel": {
         "message": "Settings"

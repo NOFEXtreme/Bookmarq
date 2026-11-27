@@ -1,6 +1,6 @@
 # Bookmarq privacy policy
 
-Bookmarq 1.0.0 shows your Chrome bookmarks on the New Tab page. It processes bookmark titles, addresses, folder names and search terms in your browser. The extension has no analytics, advertising or service that receives a copy of your bookmarks or searches.
+Bookmarq shows your Chrome bookmarks on the New Tab page. It processes bookmark titles, addresses, folder names and search terms in your browser. The extension has no analytics, advertising or service that receives a copy of your bookmarks or searches.
 
 ## Bookmarks and search
 

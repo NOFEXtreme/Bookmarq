@@ -3,7 +3,7 @@
         "message": "Bookmarq"
     },
     "appDescription": {
-        "message": "Eine neue Tab-Seite mit schnellem Zugriff auf Lesezeichen in Spalten."
+        "message": "Schneller Zugriff auf Ihre Lesezeichen in jedem neuen Tab."
     },
     "bmBarTitle": {
         "message": "Lesezeichenleiste"
@@ -21,10 +21,10 @@
         "message": "Weitere Lesezeichen"
     },
     "openFolderLinksLabel": {
-        "message": "Links öffnen"
+        "message": "Alle Weblinks öffnen"
     },
     "openFolderLinksHelp": {
-        "message": "Öffnet nur die sichtbaren Links in diesem Ordner, keine Links in Unterordnern."
+        "message": "Öffnet alle Weblinks in diesem Ordner in neuen Tabs (ohne Links in Unterordnern)."
     },
     "settingsLabel": {
         "message": "Einstellungen"
